@@ -41,3 +41,28 @@ for (const a of map.keys()) console.log(a);
 for (const a of map.values()) console.log(a);
 // key, values 모두 순회
 for (const a of map.entries()) console.log(a);
+
+/* 사용자 정의 이터러블 */
+const iterable = {
+  [Symbol.iterator]() {
+    let i = 3;
+    return {
+      next() {
+        return i == 0 ? { done: true } : { value: i--, done: false };
+      },
+      [Symbol.iterator]() {
+        return this;
+      },
+    };
+  },
+};
+
+let iterator = iterable[Symbol.iterator]();
+
+for (const a of iterable) console.log(a);
+
+/* 전개 연산자 */
+console.clear();
+const a = [1, 2];
+
+console.log([...a, ...arr, ...set, ...map, ...map.keys(), ...map.value(), ...map.entries()]);
