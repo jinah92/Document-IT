@@ -99,3 +99,16 @@ console.log(reduce(add, 0, [1, 2, 3, 4, 5])); // 결과: 15
 console.log(reduce(add, [1, 2, 3, 4, 5])); // 결과: 15
 
 console.log(reduce((total_price, product) => total_price + product.price, 0, products));
+
+/* map, filter, reduce 중첩 사용 */
+const add2 = (a, b) => a + b;
+
+console.log(
+  reduce(
+    add2,
+    map(
+      (p) => p.price,
+      filter((p) => p.price < 20000, products)
+    )
+  )
+);
