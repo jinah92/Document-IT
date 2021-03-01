@@ -1,11 +1,11 @@
 class User:
     # 클래스의 내용 작성 (속성, 행동)
     # pass # 아무 내용이 없음
-    def say_hello(user):
-        print(f'안녕하세요. 제 이름은 {user.name}')
+    def say_hello(self):
+        print(f'안녕하세요. 제 이름은 {self.name}')
     
-    def login(user, name, email):
-        if user.name == name and user.email == email:
+    def login(self, name, email):
+        if self.name == name and self.email == email:
             print("로그인 성공")
         else:
             print("계정과 이메일을 다시 확인하세요.") 
