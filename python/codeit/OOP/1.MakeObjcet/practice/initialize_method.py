@@ -5,6 +5,15 @@ class User:
         self.email = email
         self.password = password
 
+    def __str__(self):
+        return f"사용자: {self.name}, 이메일: {self.email}"
+
+
+    def __repr__(self) -> str:
+        return f"사용자: {self.name}, 이메일: {self.email}"
+
+
+        
 # 1. 인스턴스 생성
 # 2. init 메서드 자동 호출
 user1 = User("Young", "young@codeit.kr", "123456")
@@ -20,3 +29,8 @@ print(user1.name, user1.email, user1.password)
 print(user2.name, user2.email, user2.password)
 print(user3.name, user3.email, user3.password)
 print(user4.name, user4.email, user4.password)
+
+print(user1)
+print(user2)
+print(user3)
+print(user4)
