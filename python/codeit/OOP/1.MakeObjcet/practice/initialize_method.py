@@ -1,22 +1,19 @@
 # name, email, method를 한번에 초기화하는 메소드 만들기
 class User:
-    def initialize(self, name, email, password):
+    def __init__(self, name, email, password):
         self.name = name
         self.email = email
         self.password = password
 
+# 1. 인스턴스 생성
+# 2. init 메서드 자동 호출
+user1 = User("Young", "young@codeit.kr", "123456")
 
-user1 = User()
-user1.initialize("Young", "young@codeit.kr", "123456")
+user2 = User("Yoonsoo", "yoonsoo@codeit.kr", "abcdef")
 
-user2 = User()
-user2.initialize("Yoonsoo", "yoonsoo@codeit.kr", "abcdef")
+user3 = User("Taeho", "taeho@codeit.kr", "123abc")
 
-user3 = User()
-User.initialize(user3, "Taeho", "taeho@codeit.kr", "123abc")
-
-user4 = User()
-User.initialize(user4, "Lisa", "lisa@codeit.kr", "abc123")
+user4 = User("Lisa", "lisa@codeit.kr", "abc123")
 
 
 print(user1.name, user1.email, user1.password)
