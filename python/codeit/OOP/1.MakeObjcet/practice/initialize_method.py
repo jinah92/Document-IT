@@ -1,9 +1,13 @@
 # name, email, method를 한번에 초기화하는 메소드 만들기
 class User:
+    count = 0 # 모든 인스턴스의 개수
+
     def __init__(self, name, email, password):
         self.name = name
         self.email = email
         self.password = password
+
+        User.count += 1
 
     def __str__(self):
         return f"사용자: {self.name}, 이메일: {self.email}"
@@ -13,7 +17,7 @@ class User:
         return f"사용자: {self.name}, 이메일: {self.email}"
 
 
-        
+
 # 1. 인스턴스 생성
 # 2. init 메서드 자동 호출
 user1 = User("Young", "young@codeit.kr", "123456")
@@ -34,3 +38,5 @@ print(user1)
 print(user2)
 print(user3)
 print(user4)
+
+print(User.count)
