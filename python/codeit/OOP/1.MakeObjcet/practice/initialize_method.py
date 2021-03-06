@@ -17,6 +17,12 @@ class User:
         return f"사용자: {self.name}, 이메일: {self.email}"
 
 
+    @classmethod    # 클래스 메소드
+    def number_of_users(cls):
+        # cls.count == User.count
+        print(f'총 유저의 수는 {cls.count}입니다.')
+        
+
 
 # 1. 인스턴스 생성
 # 2. init 메서드 자동 호출
@@ -40,3 +46,6 @@ print(user3)
 print(user4)
 
 print(User.count)
+
+User.number_of_users()  # 클래스가 첫번째 인자로 자동 전달
+user1.number_of_users()
