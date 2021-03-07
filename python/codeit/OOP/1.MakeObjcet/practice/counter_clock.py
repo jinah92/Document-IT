@@ -7,10 +7,9 @@ class Counter:
         """
         인스턴스 변수 limit(최댓값), value(현재까지 카운트한 값)을 설정한다.
         인스턴스를 생성할 때 인스턴스 변수 limit만 파라미터로 받고, value는 초깃값 0으로 설정한다.
-        """    
+        """
         self.limit = limit
         self.value = 0
-
 
     def set(self, new_value):
         """
@@ -21,7 +20,6 @@ class Counter:
             self.value = new_value
         else:
             self.value = 0
-
 
     def tick(self):
         """
@@ -36,22 +34,21 @@ class Counter:
             return True
         return False
 
-
     def __str__(self):
         """
         value를 최소 두 자릿수 이상의 문자열로 리턴한다. 
         일단 str 함수로 숫자형 변수인 value를 문자열로 변환하고 zfill을 호출한다. 
         """
         return str(self.value).zfill(2)
-    
+
 
 class Clock:
     """
     시계 클래스
     """
-    HOURS = 24 # 시 최댓값
-    MINUTES = 60 # 분 최댓값
-    SECONDS = 60 # 초 최댓값
+    HOURS = 24  # 시 최댓값
+    MINUTES = 60  # 분 최댓값
+    SECONDS = 60  # 초 최댓값
 
     def __init__(self, hour, minute, second):
         """
@@ -62,13 +59,11 @@ class Clock:
         self.minute = minute
         self.second = second
 
-
     def set(self, hour, minute, second):
         """현재 시간을 파라미터 hour시, minute분, second초로 설정한다."""
         self.hour = hour
         self.minute = minute
         self.second = second
-
 
     def tick(self):
         """
@@ -79,11 +74,11 @@ class Clock:
         if (self.second == self.SECONDS):
             self.second = 0
             self.minute += 1
-            
+
         if (self.minute == self.MINUTES):
             self.minute = 0
             self.hour += 1
-            
+
         if (self.hour == self.HOURS):
             self.hour = 0
 
@@ -93,7 +88,7 @@ class Clock:
         예시: "03:11:02"
         """
         return f'{str(self.hour).zfill(2)}:{str(self.minute).zfill(2)}:{str(self.second).zfill(2)}'
-        
+
 
 # 초가 60이 넘을 때 분이 늘어나는지 확인하기
 print("시간을 1시 30분 48초로 설정합니다")
