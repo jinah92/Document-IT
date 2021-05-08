@@ -14,6 +14,21 @@ class LinkedList:
         self.head = None
         self.tail = None
 
+    def insert_after(self, previous_node, data):
+        """링크드 리스트 추가 연산 메소드"""
+        
+        new_node = Node(data)   # 새로운 노드 생성
+
+        new_node.next = previous_node.next
+        new_node.prev = previous_node
+
+        if previous_node.next is not None:
+            previous_node.next.prev = new_node
+        else:
+            self.tail = new_node
+
+        previous_node.next = new_node
+        
 
     def append(self, data):
         """링크드 리스트 추가 연산 메소드"""
@@ -69,7 +84,7 @@ class LinkedList:
 
         return res_str
 
-        
+
 # 빈 링크드 리스트를 정의
 my_list = LinkedList()
 
