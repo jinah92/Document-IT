@@ -10,6 +10,30 @@ class LinkedList:
         self.head = None
         self.tail = None
 
+    
+    def insert_after(self, previous_node, data):
+        """링크드 리스트 주어진 노드 뒤, 삽입하는 메소드"""        
+        new_node = Node(data)
+
+        # 가장 마지막 순서에 삽입하는 경우
+        if previous_node is self.tail:
+            self.tali.next = new_node
+            self.tail = new_node
+        
+        else:   # 두 노드 사이에 삽입하는 경우
+            new_node.next = previous_node.next
+            previous_node.next = new_node
+
+
+    def find_node_at(self, index):
+        """링크드 리스트 접근 연산 메소드. 파라미터 인덱스는 항상 있다고 가정함"""
+        iterator = self.head
+
+        for _ in range(index):
+            iterator = iterator.next
+        
+        return iterator
+
     def append(self, data):
         """링크드 리스트 추가 연산 메소드"""
         new_node = Node(data)
@@ -20,7 +44,20 @@ class LinkedList:
         else:
             self.tail.next = new_node
             self.tail = new_node
+            
 
+    def __str__(self):
+        res_str="|"
+        # 링크드 리스트 안에 모든 노드를 돌기 위한 변수. 가장 앞의 노드로 일단 정의함
+        iterator = self.head
+        
+        # 링크드 리스트를 순회함
+        while iterator is not None:
+            # 각 노드의 데이터를 리턴하는 문자열에 더해줌
+            res_str += f"{iterator.data} |"
+            iterator = iterator.next    # 다음 노드
+        
+        return res_str
 
 # 새로운 링크드 리스트 생성
 my_list = LinkedList()
@@ -31,6 +68,25 @@ my_list.append(3)
 my_list.append(5)
 my_list.append(7)
 my_list.append(11)
+
+print(my_list)
+
+node_2 = my_list.find_node_at(2) # 인덱스 2에 있는 노드 접근
+my_list.insert_after(node_2, 6) # 인덱스 2 뒤에 6을 삽입
+
+print(my_list)
+
+node_1 = my_list.head
+my_list.insert_after(node_1, 9)
+print(my_list)
+
+# 링크드 리스트 노드에 접근 (데이터 가져오기)
+print(my_list.find_node_at(3).data)
+
+# 링크드 리스트 노드에 접근 (데이터 바꾸기)
+my_list.find_node_at(2).data = 13
+
+print(my_list) # 전체 링크드 리스트 출력
 
 iterator_2 = my_list.head
 
